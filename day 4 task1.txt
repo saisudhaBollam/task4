@@ -1,0 +1,488 @@
+1.Do the below programs in anonymous function & IIFE
+  a.Print odd numbers in an array
+   Answer://using anonymous fuction
+     
+    let odd=function(arr)
+  { 
+    //creating an empty array to store odd numbers
+   let oddnumbers=[] ;
+  for( let i in arr)
+   { 
+     //we know that the number is an odd number,if it is not divisible by 2
+     if(arr[i]%2!==0)
+     { //using push to add the odd numbers in a created array
+        oddnumbers.push(arr[i]);
+     }
+  
+    } 
+    console.log(oddnumbers);
+  }
+  odd([11,12,13,14,15,16,17,18,19]);
+
+ Output:
+
+ task5.js:11    (5) [11, 13, 15, 17, 19]
+
+ //using an IIFE function to print odd numbers in an array by  using 
+ //the same logic as mentioned above in comments
+  
+(function(arr)
+{
+    let oddnumbers=[] ;
+  for( let i in arr)
+   {
+     if(arr[i]%2!==0)
+     {
+        oddnumbers.push(arr[i]);
+     }
+  
+    } 
+    console.log(oddnumbers);
+}) ([11,12,13,14,15,16,17,18,19]);
+
+ Output:
+ task5.js:26    (5) [11, 13, 15, 17, 19]
+
+b.Convert all the strings to title caps in a string array
+Answer:
+ let caps=function(arr)
+ {
+     let titlecase =[];
+    
+    for (var i in arr)
+     {  //converting the value at i to lower case
+         let converted =arr[i].toLowerCase();
+        //using inbuilt methods to convert to titlecase
+         converted= converted.charAt(0).toUpperCase()+converted.slice(1);
+         titlecase.push(converted);
+        }
+  console.log(titlecase);  
+}
+caps(["my","name","is","maneesh","cHIkoti"]);
+
+Output:
+
+task5b.js:12      (5) ['My', 'Name', 'Is', 'Maneesh', 'Chikoti']
+
+//using IIFE function
+
+(function(arr)
+{
+    let titlecase =[];
+    for (var i in arr)
+    { 
+        let converted =arr[i].toLowerCase();
+        converted= converted.charAt(0).toUpperCase()+converted.slice(1);
+        titlecase.push(converted);
+       }
+ console.log(titlecase);  
+}(["my","name","is","maneesh","cHIkoti"]));
+
+Output:
+
+task5b.js:26     (5) ['My', 'Name', 'Is', 'Maneesh', 'Chikoti']
+
+
+c.sum of all numbers in an array
+ 
+Answer://using anonymous function
+
+    let sumofarr=function(arr)
+{
+     let sum=0
+    for(let i in arr)
+    { //adding all the numbers in an array and storing it in sum 
+      sum=sum+arr[i];
+    }
+     console.log(sum);
+}
+sumofarr([1,2,3,4,5,6,7,8,9]);
+
+output:
+    
+task5c.js:7    45
+    
+//using IIFE function
+
+(function(arr)
+{
+  let sum=0;
+  for(let i in arr)
+  {
+    sum=sum+arr[i];
+  }
+  console.log(sum);
+})([1,2,3,4,5,6,7,8,9]);
+
+Output:
+
+task5c.js:18       45
+
+
+d.Return all the prime numbers in an array
+Answer://using anonymous function
+
+let numarr= function(arr)
+{ 
+ arr.forEach((element) => {
+     if(element<=1)
+     {
+         return;
+     }
+    else
+    {//iterate till i<element
+     for(i=2;i<element;i++)
+     {
+        //prime number is only divided by one and itself
+        //if the passed element is divisible by any another number it does not return element
+         if(element%i==0)
+         {
+            return;
+          }
+     }  
+     //else return elements
+      console.log(element);
+
+     }
+ });    
+}
+ numarr([1,2,3,4,5,6,7,8,9,11,13])   
+
+Output:
+     
+task5d.js:20  2
+task5d.js:20  3
+task5d.js:20  5
+task5d.js:20  7
+task5d.js:20  11
+task5d.js:20  13
+
+//using IIFE function
+
+(function(arr)
+{ 
+ arr.forEach((element) => {
+     if(element<=1)
+     {
+         return;
+     }
+    else
+    {//iterate till i<element
+     for(i=2;i<element;i++)
+     {
+        //prime number is only divided by one and itself
+        //if the passed element is divisible by any another number it does not return element
+         if(element%i==0)
+         {
+            return;
+          }
+     }  
+     //else return elements
+      console.log(element);
+
+     }
+ });    
+}([1,2,3,4,5,6,7,8,9,11,13])); 
+
+Output:
+task5d.js:46  2
+task5d.js:46  3
+task5d.js:46  5
+task5d.js:46  7
+task5d.js:46  11
+task5d.js:46  13
+
+e.Return all the palindromes in an array
+
+Answer:// using anonymous function
+ 
+    let arr=function(arr)
+{
+    arr.forEach((element) => {//converting number to string
+      let temp=element.toString();
+        //converting number to string and using split to convert it into array of individual values
+        //and using reverse method to reverse the individual values in array and joining them using join method
+        //which returns string type
+
+        //reverse can also be done using looping statements
+
+      let rev=element.toString().split("").reverse().join("");
+      if(temp===rev)
+      {//we can parse element if needed
+      console.log(element);
+      }
+    });
+}
+arr([121,22,35,76,99]);
+
+
+Output:
+
+task5e.js:13   121
+task5e.js:13   22
+task5e.js:13   99
+
+//we can also do it for strings but we should add regular expression and 
+ // replace it with  nothing
+
+// using IIFE function
+
+
+(function(arr)
+{
+    arr.forEach((element) => {
+  let   temp=element.toString();
+  let  rev=element.toString().split("").reverse().join("");
+      if(temp===rev)
+      {// we can parse the element if needed
+      console.log(element);
+      }
+    });
+}([121,22,35,76,99]));
+
+Output:
+
+task5e.js:26    121
+task5e.js:26    22
+task5e.js:26    99
+
+
+f.Return median of two sorted arrays of same size
+
+ Answer:using anonymous function
+
+
+let array=function(arr1,arr2)
+{
+  let arr3=[...arr1,...arr2].sort((a, b) => a - b)
+  let a=arr3.length;
+  //sum of two equal numbers is always an even number so the formula for median of an sorted array is
+  let median= (arr3[parseInt((a- 1) / 2)] + arr3[parseInt(a/ 2)]) / 2.0;
+  console.log(median);
+}
+array([6,7,8,9,10],[1,2,3,4,5]);
+
+Output:
+
+task5f.js:7    5.5
+
+//using IIFE function
+
+
+(function(arr1,arr2)
+{
+  let arr3=[...arr1,...arr2].sort((a, b) => a - b)
+  let a=arr3.length;
+  //sum of two equal numbers is always an even number so the formula for median of an sorted array is
+
+  let median= (arr3[parseInt((a- 1) / 2)] + arr3[parseInt(a/ 2)]) / 2.0;
+  console.log(median);
+}([6,7,8,9,10],[1,2,3,4,5]));
+
+Output:
+
+task5f.js:17    5.5
+
+g.Remove duplicates from an array
+
+Answer: using anonymous  function
+
+
+let array=function(arr)
+{//using new and set to remove duplicates from an array
+  //and using spread operator to copy the values and store  it in an array
+
+  let arr1=[...new Set(arr)];
+  console.log(arr1);
+}
+array([1,1,2,2,3,4,5,5,6,6,7,8]);
+
+Output:
+   
+task5g1.js:4     (8) [1, 2, 3, 4, 5, 6, 7, 8]
+
+
+//using IIFE function
+
+(function(arr)
+{ 
+  let arr1=[...new Set(arr)];
+  console.log(arr1);
+}([1,1,2,2,3,4,5,5,6,6,7,8]));
+
+
+Output:
+
+task5g1.js:12     (8) [1, 2, 3, 4, 5, 6, 7, 8]
+
+
+h.Rotate an array by k times
+
+Answer://using anonymous function
+
+let array=function(arr,k)
+{
+//using splice method to get the required values and storing the result in arr1
+
+let arr1=arr.splice(arr.length-k);
+
+//iterating over arr1 one using same splice method to add elements at begining
+
+for(let i=0;i<arr1.length;i++)
+{
+    arr.splice(i,0,arr1[i]);
+}
+console.log(arr);
+}
+array([9,8,7,6,5,4,3,2,1],4);
+array([1,2,3,4,5,6,7,8,9],4);
+
+Output:
+
+task5h.js:8    (9) [4, 3, 2, 1, 9, 8, 7, 6, 5]
+task5h.js:8    (9) [6, 7, 8, 9, 1, 2, 3, 4, 5]
+
+
+
+using IIFE function
+
+(function(arr,k)
+{
+let arr1=arr.splice(arr.length-k);
+for(let i=0;i<arr1.length;i++)
+{
+    arr.splice(i,0,arr1[i]);
+}
+console.log(arr);
+}([9,8,7,6,5,4,3,2,1],4));
+
+Output:
+
+task5h.js:20    (9) [4, 3, 2, 1, 9, 8, 7, 6, 5]
+// we can also use spread operator instead of for loop
+
+
+2.Do the below programs in arrow functions
+a.Print odd numbers in an array
+
+Answer:
+let odd=(arr)=>
+{ let oddnumbers=[] ;
+  for( let i in arr)
+   {
+     if(arr[i]%2!==0)
+     {
+        oddnumbers.push(arr[i]);
+     }
+  
+    } 
+    console.log(oddnumbers);
+}
+odd([11,12,13,14,15,16,17,18,19]);
+
+Output:
+task52a.js:11   (5) [11, 13, 15, 17, 19]
+
+b.Convert all the strings to title caps in a string array
+Answer:
+ let caps=(arr)=>
+ {
+     let titlecase =[];
+    
+    for (var i in arr)
+     {  
+         let converted =arr[i].toLowerCase();
+         converted= converted.charAt(0).toUpperCase()+converted.slice(1);
+         titlecase.push(converted);
+        }
+  console.log(titlecase);  
+}
+caps(["my","name","is","maneesh","cHIkoti"]);
+
+Output:
+tasktitelecaps.js:11    (5) ['My', 'Name', 'Is', 'Maneesh', 'Chikoti']
+
+
+c.Sum of all numbers in an array
+Answer:
+let sumofarr=(arr)=>
+{let sum=0
+    for(let i in arr)
+    { //adding all the numbers in an array and storing it in sum 
+      sum=sum+arr[i];
+    }
+     console.log(sum);
+}
+sumofarr([1,2,3,4,5,6,7,8,9]);
+
+Output:
+task52c.js:7    45
+
+d.Return all the prime numbers in an array
+
+Answer:
+let numarr= (arr)=>
+{ 
+ arr.forEach((element) => {
+     if(element<=1)
+     {
+         return;
+     }
+    else
+    {//iterate till i<element
+     for(i=2;i<element;i++)
+     {
+        //prime number is only divided by one and itself
+        //if the passed element is divisible by any another number it does not return element
+         if(element%i==0)
+         {
+            return;
+          }
+     }  
+     //else return elements
+     console.log(element);
+
+     }
+ });    
+}
+ numarr([1,2,3,4,5,6,7,8,9,11,13]); 
+
+Output:
+task52d.js:20   2
+task52d.js:20   3
+task52d.js:20   5
+task52d.js:20   7
+task52d.js:20   11
+task52d.js:20   13
+
+e.Return all the palindromes in an array
+Answer:
+
+let arr=function(arr)
+{
+    arr.forEach((element) => {//converting number to string
+      let   temp=element.toString();
+        //converting number to string and using split to convert it into array of individual values
+        //and using reverse method to reverse the individual values in array and joining them using join method
+        //which returns string type
+
+        //reverse can also be done using looping statements
+       let  rev=element.toString().split("").reverse().join("");
+      if(temp===rev)
+      {
+     console.log(element);
+      }
+    });
+}
+arr([121,22,35,76,99]);
+
+Output:
+task52e.js:13   121
+task52e.js:13   22
+task52e.js:13   99
+
+
+
+
+
+
